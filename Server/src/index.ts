@@ -20,6 +20,7 @@ redis.run()
 
 const app: Express = express()
 const specs = swaggerJsdoc(swaggerConfig)
+app.get('/', (req,res)=>res.send("hellooo"));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 
