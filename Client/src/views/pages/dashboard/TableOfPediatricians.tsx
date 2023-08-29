@@ -123,6 +123,7 @@ const TableOfPediatricians = (props: TableOfPediatriciansProps): React.ReactElem
 
   // Calculate the index of the first row on the current page
   const startIndex = (currentPage - 1) * rowsPerPage;
+  
   // Slice the filtered data to display only the rows for the current page
   const displayedRows = medicalsData.slice(startIndex, startIndex + rowsPerPage);
 

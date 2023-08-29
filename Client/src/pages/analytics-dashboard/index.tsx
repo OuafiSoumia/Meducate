@@ -21,8 +21,8 @@ import Maps from "src/views/pages/dashboard/Maps";
 import TableOfPediatricians, { TableBodyRowType } from "src/views/pages/dashboard/TableOfPediatricians";
 import Statistics from "src/views/pages/dashboard/Statistics";
 import PageHeader from 'src/@core/components/page-header';
-import ChartjsBarChart from 'src/views/charts/ChartjsBarChart'
-import ApexColumnChart from 'src/views/charts/ApexColumnChart'
+import ChartjsBarChart from 'src/views/charts/ChartjsBarChart';
+import ApexColumnChart from 'src/views/charts/ApexColumnChart';
 
 const RechartsPieChart = dynamic(() => import('src/views/charts/ApexDonutChart'), { ssr: false })
 
@@ -40,7 +40,7 @@ const AnalyticsDashboard = () => {
 
   const [cityValue, setCityValue] = useState<string>('All')
   const [categoryValue, setCategoryValue] = useState<string>('All')
-  const [specialityValue, setSpecialityValue] = useState<string>('All')
+  const [specialityValue, setSpecialityValue] = useState<string>('All');
   const [value, setValue] = useState<string>('')
 
   interface CategoryData {
@@ -64,6 +64,9 @@ const AnalyticsDashboard = () => {
   const handleSpecialityValue = (e: SelectChangeEvent) => {
     setSpecialityValue(e.target.value)
   }
+
+
+
 
 
   // State to keep track of the selected row in the TableOfPediatricians component
@@ -194,7 +197,9 @@ const AnalyticsDashboard = () => {
         <Card sx={{ marginBottom: '20px' }}>
           <CardHeader
             title='Geographical Distribution of Medical Centers '
+
             // subheader={`Geographical Distribution of Medical Centers `}
+            
             subheaderTypographyProps={{ sx: { color: theme => `${theme.palette.text.disabled} !important` } }}
           />
           <CardContent>
@@ -232,6 +237,7 @@ const AnalyticsDashboard = () => {
                 </Link>
               </Typography>
             }
+
             // subtitle={<Typography variant='body2'>Pediatrician Stats</Typography>}
           />
         </Grid>

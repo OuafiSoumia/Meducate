@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { ApexOptions } from 'apexcharts';
 import ReactApexcharts from 'src/@core/components/react-apexcharts';
 import AnalyticsDashboard from 'src/services/analyticsDashboard';
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
-import CardContent from '@mui/material/CardContent'
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
 import { useTheme } from '@mui/material/styles'; 
 
 const columnColors = {
@@ -36,6 +36,7 @@ const ApexColumnChart = () => {
         const categoryNames = Object.keys(data).reduce((acc: string[], cityName: string) => {
           const cityData = data[cityName];
           const cityCategoryNames = Object.keys(cityData);
+          
           return [...acc, ...cityCategoryNames];
         }, []);
 

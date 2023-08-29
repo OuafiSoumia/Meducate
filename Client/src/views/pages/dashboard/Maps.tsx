@@ -31,6 +31,7 @@ interface GeoJSONFeature {
   };
   geometry: PolygonGeometry;
 }
+
 // Interface for the FeatureCollection in the GeoJSON data
 interface GeoJSONFeatureCollection {
   type: "FeatureCollection";
@@ -86,9 +87,9 @@ const MoroccoMap = ({
   };
 
   const handleMarkerClick = (medical: MedicalData) => {
-    // if (!showRegionInfo) {
+
     onMarkerClick(medical);
-  // }
+
   };
 
 
@@ -167,6 +168,7 @@ const createCustomMarkerIcon = (color: string) => {
   const markerIcon = {
     url: defaultMarkerUrl,
   };
+
   return markerIcon;
 };
 
@@ -195,6 +197,7 @@ const handleShowRegionInfoChange = () => {
 
         // Define the desired color based on the category (you can use any color logic here)
         const markerColor = category === 'hospital' ? 'red' : category === 'clinical' ? 'yellow' :category==='doctor'?'blue':category==='pharmacy'?'purple':category==='cabinet'?'green':category==='centre'?'orange': 'red';
+        
         // Create the custom marker icon based on the desired color
         const icon = createCustomMarkerIcon(markerColor);
         console.log('Medical Category:', category);
@@ -305,15 +308,16 @@ const handleShowRegionInfoChange = () => {
 };
 
 const Maps = ({ cityValue,category,speciality,selectedMedicalTable }: { cityValue: string ; category: string ;speciality: string ;  selectedMedicalTable: TableBodyRowType | null;}): ReactElement => {
+ 
   // Définir le state pour le centre initial de la carte
   const [center, setCenter] = useState<{ lat: number; lng: number }>({ lat: 31.7917, lng: -7.0926 });
+ 
   // Définir le state pour le niveau de zoom initial de la carte
   const [zoom, setZoom] = useState<number>(6);
   
 
   const [medicalsData, setMedicalsData] = useState<MedicalData[]>([]);
   const [selectedMedical, setSelectedMedical] = useState<MedicalData | null>(null); 
-  const [medicalTable, setMedicalTable] = useState<TableBodyRowType| null>(null);
 
   useEffect(() => {
     const fetchMedicals = async () => {
@@ -353,7 +357,7 @@ const Maps = ({ cityValue,category,speciality,selectedMedicalTable }: { cityValu
       setZoom(20);
       setSelectedMedical(selectedMedicalTable); 
     }
-  }, [selectedMedicalTable, medicalTable]);
+  }, [selectedMedicalTable]);
 
 
 
